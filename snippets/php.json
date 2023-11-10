@@ -1,0 +1,77 @@
+{
+  "bitrix-die": {
+    "prefix": ["die"],
+    "body": [
+      "<?php",
+      "if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) {",
+      "    die();",
+      "}",
+      "?>"
+    ],
+    "description": "Bitrix die"
+  },
+  "bitrix-prolog": {
+    "prefix": ["prolog"],
+    "body": [
+      "<?php",
+      "require  \\$_SERVER['DOCUMENT_ROOT'] . '/bitrix/header.php';",
+      "?>"
+    ],
+    "description": "Bitrix prolog"
+  },
+  "bitrix-epilog": {
+    "prefix": ["epilog"],
+    "body": [
+      "<?php",
+      "require \\$_SERVER['DOCUMENT_ROOT'] . '/bitrix/footer.php';",
+      "?>"
+    ],
+    "description": "Bitrix epilog"
+  },
+  "bitrix-page": {
+    "prefix": ["page"],
+    "body": [
+      "<?",
+      "require(\\$_SERVER[\"DOCUMENT_ROOT\"].\"/bitrix/header.php\");",
+      "\\$APPLICATION->SetTitle(\"Новая страница\");",
+      "?>",
+      "",
+      "Text here....",
+      "",
+      "<?require(\\$_SERVER[\"DOCUMENT_ROOT\"].\"/bitrix/footer.php\");?>"
+    ],
+    "description": "Bitrix page"
+  },
+  "bitrix-debug": {
+    "prefix": "debug",
+    "body": ["\\YE\\Debug::print($1);"],
+    "description": "Ye debug print"
+  },
+  "bitrix-loader": {
+    "prefix": "loader",
+    "body": ["if (!Loader::includeModule('iblock')) {", "    return;", "}"],
+    "description": "Loader iblock"
+  },
+  "bitrix-component": {
+    "prefix": "component",
+    "body": [
+      "\\$APPLICATION->IncludeComponent(",
+      "        \"$1\",",
+      "       \".default\",",
+      "       array(),",
+      "        false",
+      ");"
+    ],
+    "description": "Bitrix component"
+  },
+  "bitrix-section-block": {
+    "prefix": "section",
+    "body": [
+        "<section class\"\">",
+        "   <div class=\"container\">",
+        "   </div>",
+        "</section>"
+    ],
+    "description": "Bitrix component"
+  }
+}

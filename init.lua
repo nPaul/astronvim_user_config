@@ -19,6 +19,9 @@ return {
 
   -- Set colorscheme to use
   colorscheme = "astrodark",
+  --colorscheme = "catppuccin",
+  --colorscheme = "onedark",
+  --colorscheme = "molokai",
 
   -- Diagnostics configuration (for vim.diagnostics.config({...})) when diagnostics are on
   diagnostics = {
@@ -27,6 +30,52 @@ return {
   },
 
   lsp = {
+    config = {
+      intelephense = function()
+        return {
+          settings = {
+            intelephense = {
+              environment = {
+                phpVersion = "8",
+                shortOpenTag = true,
+              },
+              files = {
+                maxSize = 16000000,
+              },
+              diagnostics = {
+                -- undefinedClassConstants = false,
+                -- undefinedFunctions = false,
+                -- undefinedConstants = false,
+                -- undefinedProperties = false,
+                undefinedTypes = false,
+                -- undefinedMethods = false,
+                -- unexpectedTokens = false,
+                typeErrors = false,
+              },
+            },
+          },
+        }
+      end,
+      emmet_ls = {
+        filetypes = {
+          "astro",
+          "css",
+          "eruby",
+          "html",
+          "htmldjango",
+          "javascriptreact",
+          "less",
+          "php",
+          "pug",
+          "sass",
+          "scss",
+          "svelte",
+          "typescriptreact",
+          "vue",
+        },
+      },
+    },
+
     -- customize lsp formatting options
     formatting = {
       -- control auto formatting on save
@@ -43,7 +92,7 @@ return {
         -- disable lua_ls formatting capability if you want to use StyLua to format your lua code
         -- "lua_ls",
       },
-      timeout_ms = 1000, -- default format timeout
+      timeout_ms = 3000, -- default format timeout
       -- filter = function(client) -- fully override the default formatting function
       --   return true
       -- end
